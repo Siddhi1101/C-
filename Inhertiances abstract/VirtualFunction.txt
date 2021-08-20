@@ -1,0 +1,152 @@
+//1VirtualMethodExpample1
+using System;
+class base1
+{
+    public virtual void Display()
+    {
+		Console.WriteLine("Calling Base Class !!");
+    }
+}
+class derived : base1
+{
+    public override void Display()
+    {
+		Console.WriteLine("Calling Derived Class !!");
+    }
+}
+class Program
+{
+    static void Main()
+    {
+		base1 b1 = new base1();
+		b1.Display();
+		base1 d1 = new derived();
+		d1.Display();
+    }
+}
+
+
+////2VirtualMethodExpl2
+using System;
+
+namespace HelloWorld
+{
+  public class People
+  {
+    public virtual void SayHello()
+    {
+      Console.WriteLine("Hello from people");
+    }
+  }
+  
+  class Boy : People
+  {
+    public override void SayHello()
+    {
+      Console.WriteLine("Hello Guys, Iam a Boy");
+    }
+  }
+  
+  class Girl : People
+  {
+    public override void SayHello()
+    {
+      Console.WriteLine("Hey!! Iam a Girl");
+    }
+  }
+  
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			Boy Vikas = new Boy();
+			Girl Pragati = new Girl();
+			People p = new People();
+			
+			p.SayHello();
+			Vikas.SayHello();
+			Pragati.SayHello();
+		}
+	}
+}
+
+//3VirtualMethodExpample3
+using System;
+namespace VirtualMethodExp
+{
+    class Shape
+    {
+
+        protected float R, L, B;
+        public virtual float Area()
+        {
+
+            return 3.14F * R * R;
+        }
+
+        public virtual float Circumference()
+        {
+            return 2 * 3.14F * R;
+        }
+
+    }
+
+    class Rectangle : Shape
+    {
+        public void GetLB()
+        {
+            Console.Write("Enter  Length  :  ");
+
+            L = float.Parse(Console.ReadLine());
+
+            Console.Write("Enter Breadth : ");
+            B = float.Parse(Console.ReadLine());
+        }
+        public override float Area()
+        {
+
+            return L * B;
+        }
+
+        public override float Circumference()
+        {
+            return 2 * (L + B);
+        }
+    }
+
+    class Circle : Shape
+    {
+        public void GetRadius()
+        {
+            Console.Write("Enter  Radius  :  ");
+
+            R = float.Parse(Console.ReadLine());
+        }
+    }
+
+    class MainClass
+    {
+        static void Main()
+        {
+
+            Rectangle R = new Rectangle();
+            R.GetLB();
+
+            Console.WriteLine("Area : {0}", R.Area());
+
+            Console.WriteLine("Circumference : {0}", R.Circumference());
+
+            Console.WriteLine();
+
+            Circle C = new Circle();
+            C.GetRadius();
+
+            Console.WriteLine("Area : {0}", C.Area());
+            Console.WriteLine("Circumference : {0}", C.Circumference());
+
+            Console.Read();
+        }
+    }
+}
+
+

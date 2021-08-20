@@ -1,0 +1,121 @@
+//1Abstractexample
+using System;
+namespace Abs
+{
+  public abstract class People
+  {
+    public abstract void SayHello();
+  }
+  
+  sealed class Boy : People
+  {
+    public override void SayHello()
+    {
+      Console.WriteLine("Hello Guys, Iam a Boy");
+    }
+  }
+  
+  sealed class Girl : People
+  {
+    public override void SayHello()
+    {
+      Console.WriteLine("Hey!! Iam a Girl");
+    }
+  }
+  
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			Boy Vikas = new Boy();
+			Girl Pragati = new Girl();
+			
+			Vikas.SayHello();
+			Pragati.SayHello();
+		}
+	}
+}
+//2Abstractexample
+using System;
+
+public abstract class Volume
+{
+    public abstract int vol();
+    
+}
+
+class Cube:Volume{
+    int side;
+    public Cube(int n){
+        side = n;
+    }
+    public override int vol(){
+        return side*side*side;
+    }
+}
+
+class Cylinder:Volume{
+    float len;
+    float r;
+    public Cylinder(float len_, float r_){
+        len = len_;
+        r = r_;
+    }
+    public override int vol(){
+        return Convert.ToInt32(2*3.14*len*r);
+    }
+}
+
+class Abs{
+    static void Main(){
+      Console.WriteLine("Enter the Side of Cube :");
+      int side = Convert.ToInt32(Console.ReadLine());
+      Console.WriteLine("Enter the Height of Cylinder :");
+      int height = Convert.ToInt32(Console.ReadLine());
+      Console.WriteLine("Enter the Radius of Cylinder :");
+      int radius = Convert.ToInt32(Console.ReadLine());
+      
+      Cube c = new Cube(side);
+      Cylinder c1 = new Cylinder(height, radius);
+        
+      Console.WriteLine(c.vol()); 
+      Console.WriteLine(c1.vol());
+        
+
+        
+    }
+}
+///3AbstractExample
+using System;
+public abstract class Vehicle {
+   public abstract void display();
+}
+
+public class Bus : Vehicle {
+   public override void display() {
+      Console.WriteLine("Bus");
+   }
+}
+
+public class Car : Vehicle {
+   public override void display() {
+      Console.WriteLine("Car");
+   }
+}
+
+public class Motorcycle : Vehicle {
+   public override void display() {
+      Console.WriteLine("Motorcycle");
+   }
+}
+
+public class MyClass {
+   public static void Main() {
+      Vehicle v = new Bus();
+      v.display();
+      v = new Car();
+      v.display();
+      v = new Motorcycle();
+      v.display();
+   }
+} 

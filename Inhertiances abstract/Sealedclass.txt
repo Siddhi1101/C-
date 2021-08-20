@@ -1,0 +1,82 @@
+//1SealedExample1
+using System;
+
+namespace HelloWorld
+{
+  public class People
+  {
+    public virtual void SayHello()
+    {
+      Console.WriteLine("Hello from people");
+    }
+  }
+  
+  sealed class Boy : People
+  {
+    public override void SayHello()
+    {
+      Console.WriteLine("Hello Guys, Iam a Boy");
+    }
+  }
+  
+  sealed class Girl : People
+  {
+    public override void SayHello()
+    {
+      Console.WriteLine("Hey!! Iam a Girl");
+    }
+  }
+  
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			Boy Vikas = new Boy();
+			Girl Pragati = new Girl();
+			People p = new People();
+			
+			p.SayHello();
+			Vikas.SayHello();
+			Pragati.SayHello();
+		}
+	}
+}
+//2sealedExample
+using System;
+
+namespace HelloWorld
+{
+  public class Family
+  {
+    public Family()
+    {
+      Console.WriteLine("Family class Constructor");
+    }
+  }
+  
+  public class Genus : Family 
+  {
+    public Genus()
+    {
+      Console.WriteLine("Genus class Constructor");
+    }
+  }
+  
+  sealed class Species : Genus
+  {
+    public Species()
+    {
+      Console.WriteLine("Species class Constructor");
+    }
+  }
+  
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			Family family = new Family();
+			Genus genus = new Genus();
+			Species species = new Species();
+		}
+	}
+}
